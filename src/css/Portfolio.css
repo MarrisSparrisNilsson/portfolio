@@ -27,6 +27,113 @@ body{
     z-index: 10;
 } */
 
+/* --------------------------------------------------- Modal ------------------------------------------------------- */
+
+.modalOverlay{
+    position: fixed;
+    /* display: none; */
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: -1;
+
+    transition: 0.3s ease-in-out;
+}
+
+.dark{
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+}
+
+.blured{
+    filter: blur(3px);
+    opacity: 1;
+}
+
+.modal{
+    /* background-color: white; */
+    width: 500px;
+    max-width: 60%;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    transition: 0.2s ease-in-out;
+
+    overflow: hidden;
+
+    /* display: none; */
+    opacity: 0;
+
+    border: 2px solid white;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.modal.active{
+    /* display: block; */
+    opacity: 1;
+
+    box-shadow: 0px 0px 50px 3px black;
+    box-shadow: 0px 0px 30px 1px white;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header{
+    padding: 10px 15px;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    border-bottom: 2px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.modal-header .title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.modal-header .close-btn{
+    border: none;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 0px 10px;
+
+    transition: all 0.6s;
+}
+
+.modal-header .close-btn:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 15px 1px white;
+}
+
+.modal-form{
+    padding: 25px 15px;
+    background-color: rgba(92, 92, 92, 0.8);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+/* --------------------------------------------------- Modal ------------------------------------------------------- */
+
 .nav{
     position: sticky;
     top: 0;
@@ -40,6 +147,7 @@ body{
     
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     box-shadow: 0px 0px 30px 1px white;
     z-index: 10;
 }
@@ -50,9 +158,16 @@ body{
     width: calc(100% - 40px);
 }
 
-/* .menu{
-    background-image: url(../images/icons/bars-solid.svg);
-} */
+.menu{
+    /* background-image: url(../images/icons/bars-solid.svg); */
+    width: 30px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    display: none;
+}
 
 .nav_btn{
     padding: 10px;
@@ -60,6 +175,13 @@ body{
     background-color: transparent;
     color: white;
     transition: background 0.3s;
+}
+
+.hidden{
+    color: white;
+    display: none;
+    margin: 0;
+    margin-left: 15px;
 }
 
 .selected{
@@ -71,7 +193,7 @@ body{
     background-color: rgba(100, 100, 100, 0.4);
 }
 
-.mainContent{
+.content{
 
     /* background-color: grey; */
     /* width: 100%; */
@@ -108,6 +230,13 @@ body{
     background-size: cover; */
 }
 
+.profile-text{
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 2.4em;
+    color: white;
+}
+
 .project-container{
     background-color: rgba(187, 187, 187, 0.9);
     border-radius: 10px;
@@ -123,7 +252,7 @@ body{
     grid-gap: 20px;
     grid-auto-rows: 100px;
     grid-auto-columns: 150px;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
@@ -196,6 +325,12 @@ footer:hover{
     }   
 }
 
+@media(max-width: 1445px){
+    .project-container{
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
 @media(max-width: 1230px){
     /* .project-container{
         grid-template-columns: repeat(2, 1fr);
@@ -203,5 +338,39 @@ footer:hover{
     } */
     .project-text{
         font-size: 2.3em;
+    }
+}
+
+@media(max-width: 960px){
+    .project-container{
+        grid-template-rows: repeat(5, 1fr);
+    }
+}
+
+@media(max-width: 620px){
+    #overview{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+    }
+}
+
+@media(max-width: 530px){
+    #about{
+        display: none;
+    }
+    .project-container{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 410px){
+    #projects, #contact{
+        display: none;
+    }
+    .hidden{
+        display: block;
     }
 }
