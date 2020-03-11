@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+html{
+    font-family: 'Varela Round', sans-serif;
+}
+
+:root{
+    --iconSize: 18vh;
+}
+
+body{
+    margin: 0;
+    margin-bottom: 500px;
+    background-image: url(../images/backgrounds/mainbgd4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-position: center; */
+}
+
+/* .bgdImg{
+    background-image: url('../images/mainbgd4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: 10;
+} */
+
+.nav{
+    position: sticky;
+    top: 0;
+
+    background-color: rgb(27, 27, 27);
+    padding: 40px 40px;
+
+    transition: padding 0.3s;
+    
+    font-size: 1.2em;
+    
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 30px 1px white;
+    z-index: 10;
+}
+
+.scrolled{
+    transition: padding 0.3s;
+    position: fixed;
+    width: calc(100% - 40px);
+}
+
+/* .menu{
+    background-image: url(../images/icons/bars-solid.svg);
+} */
+
+.nav_btn{
+    padding: 10px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: white;
+    transition: background 0.3s;
+}
+
+.selected{
+    border-bottom: 2px solid white;    
+}
+
+.nav_btn:hover{
+    cursor: pointer;
+    background-color: rgba(100, 100, 100, 0.4);
+}
+
+.mainContent{
+
+    /* background-color: grey; */
+    /* width: 100%; */
+    height: 100%;
+    /* margin: 20%; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info-container{
+    /* background-color: rgba(146, 146, 146, 0.6); */
+    width: fit-content;
+    /* height: 400px; */
+    padding: 30px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    align-items: center;
+}
+
+.userPic{
+    background-color: grey;
+    padding: 5px;
+    box-shadow: 0px 0px 15px 8px rgb(255, 255, 255);
+    width: var(--iconSize);
+    height: var(--iconSize);
+    border-radius: var(--iconSize);
+
+    /* background-image: url(../images/user-icon-solid.svg);
+    background-size: cover; */
+}
+
+.project-container{
+    background-color: rgba(187, 187, 187, 0.9);
+    border-radius: 10px;
+    width: 70%;
+    /* box-shadow: 0px 0px 10px 5px rgb(255, 255, 255); */
+
+
+    margin-top: 20px;
+
+    padding: 30px;
+
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-rows: 100px;
+    grid-auto-columns: 150px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.project-item{
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.project-item:hover{
+    /* filter: blur(3px); */
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.project-img{
+    width: 100%;
+    height: 250px;
+    transition: all 0.4s;
+    /* height: 100%; */
+    background-image: url(../images/project_images/modern_fashsion_img.png);
+    background-size: cover;
+    background-position: center;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+/* .project-img:hover{
+    filter: blur(3px);
+    transform: scale(1.1);
+} */
+
+.project-text{
+    /* width: 100%;
+    height: 100%; */
+    /* margin-top: -40px; */
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+    transition: margin 0.2s;
+    z-index: 20;
+    opacity: 0.6;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(196, 196, 196);
+}
+
+footer{
+    background-color: rgb(138, 138, 138);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    padding: 20px;
+
+    height: 20px;
+    transition: height 0.4s;
+}
+
+footer:hover{
+    height: 70px;
+}
+
+@media(max-width: 1500px){
+    .project-text{
+        font-size: 2.3em;
+    }   
+}
+
+@media(max-width: 1230px){
+    /* .project-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    } */
+    .project-text{
+        font-size: 2.3em;
+    }
+}
