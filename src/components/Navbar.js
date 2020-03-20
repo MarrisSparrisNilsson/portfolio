@@ -1,25 +1,36 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { Link } from 'react-router-dom'
+import menuIcon from '../images/icons/bars-solid.svg'
 
-const Navbar = (props) => {
+const Navbar = () => {
+
+    const nav = createRef()
+    const navBtns = document.querySelectorAll('.nav_btn')
 
     window.onscroll = function() {scrollFunction()};
 
     const scrollFunction = (e) => {
+        
         console.log('scroll');
         
         if (document.documentElement.scrollTop > 1) {
-            document.querySelector('.nav').style.padding = "20px";
-            // document.getElementById("logo").style.fontSize = "25px";
+            nav.current.style.height = "60px";
+
+            Array.from(navBtns).forEach(btn => {
+                btn.style.padding = "5px"
+            })
+
         } else {
-            document.querySelector('.nav').style.padding = "40px";
-            // document.getElementById("logo").style.fontSize = "35px";
+            nav.current.style.height = "100px";
+            Array.from(navBtns).forEach(btn => {
+                btn.style.padding = "10px"
+            })
         }
     }
 
     return (
-        <div className={props.scrolled ? 'nav scrolled' : 'nav'}>
-            <img className="menu" src="../src/images/icons/bars-solid.svg"/>
+        <div className="nav" ref={nav}>
+            <img className="menu" src={menuIcon} alt="menu"/>
             <Link to="/" style={{color: "transparent"}}>
                 <span id="overview" className="nav_btn">Overview</span>
             </Link>

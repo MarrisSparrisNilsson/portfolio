@@ -1,11 +1,12 @@
 import React, { createRef } from 'react'
+import modernFashion from '../images/project_images/modern_fashion_img.png'
+import taskManager from '../images/project_images/task-manager_startup_img.png'
 
 const ProjectItem = () => {
-
     const projectImg = createRef()
     const projectText = createRef()
 
-    const enterProjectItem = () => {
+    const enterProjectItem = () => {        
         projectText.current.style.marginTop = "-150px";
         projectImg.current.style.filter = "blur(3px)";
     }
@@ -14,17 +15,6 @@ const ProjectItem = () => {
         projectText.current.style.marginTop = "0px";
         projectImg.current.style.filter = "blur(0px)";
     }
-
-    // let setImage = 1
-    // setInterval(() => {
-    //     if (setImage === 1) {
-    //         projectImg.style.backgroundImage = ""
-    //         setImage = 2
-    //     } else {
-    //         projectImg.style.backgroundImage = ""
-    //         setImage = 1
-    //     }
-    // }, 7000);
 
     return (
         <div className="project-item" onMouseOver={enterProjectItem} onMouseOut={leaveProjectItem}>

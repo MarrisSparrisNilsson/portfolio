@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 
 const Modal = (props) => {
     return ReactDOM.createPortal(
-        <div className={`modalOverlay ${props.type}`}>
+        <>
+            <div className={`modalOverlay ${props.type}`}></div>
             <div className={props.state ? 'modal active' : 'modal'} id="modal">
                 <div className="modal-header">
                     <div className="title">Edit Your Profile</div>
@@ -17,7 +18,7 @@ const Modal = (props) => {
                     <button className="btn" id="updateUserInfo">Save Changes!</button>
                 </form>
             </div>
-        </div>,
+        </>,
         document.querySelector('#modal')
     );
 }

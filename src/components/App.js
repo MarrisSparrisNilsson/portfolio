@@ -8,25 +8,10 @@ import Overview from './route_components/Overview'
 
 const App = () => {
 
-    const [scrollState, setScrollState] = useState(false)
-
-    useEffect(() => {
-        window.addEventListener('scroll', e => {
-            const isTop = window.scrollY < 1
-            if (isTop !== true) {
-                setScrollState(true)
-            }
-            else{
-                setScrollState(false)
-            }
-        })
-    })
-
     return (
         <>
             <Router>
-                {/* Portfolio Page */}
-                <Navbar scrolled={scrollState}/>
+                <Navbar/>
                 <Switch>
                     <Route path="/" exact component={Overview}/>
                     <Route path="/about" exact component={About}/>

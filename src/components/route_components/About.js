@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="content">
             <Profile />
-            <Modal type="dark" state={true}/>
+            {/* <Modal type="dark" state={true}/> */}
         </div>
     )
 }
